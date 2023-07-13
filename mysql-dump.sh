@@ -119,7 +119,8 @@ sftp_backup(){
 s3_backup(){
 	[ $VERBOSE -eq 1 ] && echo "Uploading backup file to S3 Bucket"
 	cd ${FILE_PATH}
-	$S3CMD put "$FILE_NAME" s3://${S3_BUCKET_NAME}/${S3_UPLOAD_LOCATION}/
+	$S3CMD put "$FILE_NAME" s3://${S3_BUCKET_NAME}/${S3_UPLOAD_LOCATION}/${CURRENT_DATE}/
+}
 
 ### Remove older backups
 clean_old_backups(){
